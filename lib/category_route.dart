@@ -3,8 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
-// TODO: Check if we need to import anything
+import 'package:unit_converter_udacity/category.dart';
 
 // TODO: Define any constants
 
@@ -42,15 +41,29 @@ class CategoryRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Create a list of the eight Categories, using the names and colors
-    // from above. Use a placeholder icon, such as `Icons.cake` for each
-    // Category. We'll add custom icons later.
+    final listView = Container(
+        color: Colors.green.shade100,
+        child: ListView.builder(
+            itemCount: _categoryNames.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                child: Category(
+                    name: _categoryNames[index],
+                    color: _baseColors[index],
+                    iconLocation: Icons.add_to_home_screen_outlined),
+              );
+            }));
 
-    // TODO: Create a list view of the Categories
-    final listView = Container();
-
-    // TODO: Create an App Bar
-    final appBar = AppBar();
+    final appBar = AppBar(
+      backgroundColor: Colors.green.shade100,
+      title: Text(
+        'Unit Converter',
+        style: TextStyle(
+          fontSize: 30,
+        ),
+      ),
+    );
 
     return Scaffold(
       appBar: appBar,
