@@ -4,8 +4,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:task_04_navigation/category.dart';
-import 'package:task_04_navigation/unit.dart';
+import 'category.dart';
+import 'unit.dart';
 
 final _backgroundColor = Colors.green[100];
 

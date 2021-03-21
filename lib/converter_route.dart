@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-import 'package:task_04_navigation/unit.dart';
+import 'unit.dart';
 
 /// Converter screen where users can input amounts to convert.
 ///
@@ -16,30 +16,29 @@ import 'package:task_04_navigation/unit.dart';
 class ConverterRoute extends StatelessWidget {
   /// Units for this [Category].
   final List<Unit> units;
+  final Color categoryColor;
 
   /// This [ConverterRoute] requires the color and units to not be null.
-  // TODO: Pass in the [Category]'s color
-  const ConverterRoute({
-    @required this.units,
-  }) : assert(units != null);
+  const ConverterRoute({@required this.units, @required this.categoryColor})
+      : assert(units != null);
 
   @override
   Widget build(BuildContext context) {
     // Here is just a placeholder for a list of mock units
     final unitWidgets = units.map((Unit unit) {
-      // TODO: Set the color for this Container
       return Container(
+        color: categoryColor,
         margin: EdgeInsets.all(8.0),
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             Text(
               unit.name,
-              style: Theme.of(context).textTheme.headline,
+              style: Theme.of(context).textTheme.headline5,
             ),
             Text(
               'Conversion: ${unit.conversion}',
-              style: Theme.of(context).textTheme.subhead,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ],
         ),
