@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-import 'unit.dart';
+import 'package:task_05_stateful_widgets/unit.dart';
 
 /// Converter screen where users can input amounts to convert.
 ///
@@ -13,32 +13,42 @@ import 'unit.dart';
 ///
 /// While it is named ConverterRoute, a more apt name would be ConverterScreen,
 /// because it is responsible for the UI at the route's destination.
+// TODO: Make ConverterRoute a StatefulWidget
 class ConverterRoute extends StatelessWidget {
+  /// Color for this [Category].
+  final Color color;
+
   /// Units for this [Category].
   final List<Unit> units;
-  final Color categoryColor;
 
   /// This [ConverterRoute] requires the color and units to not be null.
-  const ConverterRoute({@required this.units, @required this.categoryColor})
-      : assert(units != null);
+  const ConverterRoute({
+    @required this.color,
+    @required this.units,
+  })  : assert(color != null),
+        assert(units != null);
+
+  // TODO: Create State object for the ConverterRoute
 
   @override
   Widget build(BuildContext context) {
     // Here is just a placeholder for a list of mock units
+    // TODO: Once the build() function is inside the State object,
+    // you'll have to reference this using `widget.units`
     final unitWidgets = units.map((Unit unit) {
       return Container(
-        color: categoryColor,
+        color: color,
         margin: EdgeInsets.all(8.0),
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             Text(
               unit.name,
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headline,
             ),
             Text(
               'Conversion: ${unit.conversion}',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.subhead,
             ),
           ],
         ),
